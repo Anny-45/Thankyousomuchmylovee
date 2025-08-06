@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+    body, html { width: 100%; height: 100%; overflow: hidden; }
+    .page {
+      width: 100vw; height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center;
+      position: absolute;
+      top: 0; left: 100%;
+      background-size: cover; background-position: center;
+      padding: 20px;
+      transition: left 0.8s ease-in-out;
+    }
+    .active { left: 0; }
+    h1, h2 { color: white; margin-bottom: 20px; }
+    .button {
+      margin-top: 30px; padding: 12px 24px;
+      background: linear-gradient(to right, pink, purple);
+      color: white; border: none;
+      border-radius: 20px; cursor: pointer;
+      font-size: 16px;
+    }
+    .note-slider {
+      display: flex; overflow-x: auto;
+      gap: 20px; padding: 10px; width: 90%;
+      scroll-snap-type: x mandatory;
+    }
+    .note {
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+      color: white;
+      padding: 20px;
+      border-radius: 15px;
+      font-size: 18px;
+      min-width: 280px;
+    }
+    .pink { background: pink; }
+    .orange { background: orange; }
+    .blue { background: royalblue; }
+    .purple { background: purple; }
+    .brown { background: saddlebrown; }
+    .thankyou-box {
+      background: lightpink; color: white;
+      padding: 20px; border-radius: 20px;
+      font-style: italic; font-size: 18px;
+      max-width: 90%;
+    }
+    .multi-photo {
+      display: flex; overflow-x: auto;
+      gap: 10px; margin-top: 10px;
+    }
+    .multi-photo img {
+      width: 250px; height: 250px;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+    .hug-title {
+      font-size: 24px; font-weight: bold;
+      background: linear-gradient(to right, purple, pink);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    audio { display: none; }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_1b1c8df7c3.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="page active" style="background: pink;" id="page1">
+    <img src="hug1.gif" width="150" />
+    <h1><b style="color: white;">I want to say something ❤️</b></h1>
+    <h2 style="color: black; font-style: italic;">straight from my heart</h2>
+    <button class="button" onclick="nextPage()">Let me tell you</button>
+  </div>
+
+  <div class="page" style="background: pink;" id="page2">
+    <h1><b>Some words from my heart</b></h1>
+    <div class="note-slider">
+      <div class="note pink">💖 Thank you for always being there when I needed you the most</div>
+      <div class="note orange">🌞 Thank you for making my lyf brighter</div>
+      <div class="note blue">😊 Thank you for making me smile every day</div>
+      <div class="note purple">🌈 Thank you for bringing the sunshine into my world</div>
+      <div class="note brown">🎁 Thank you for being the most precious gift of my lyf</div>
+    </div>
+    <button class="button" onclick="nextPage()">Keep Going</button>
+  </div>
+
+  <div class="page" style="background: url('photo4.jpg') no-repeat center center / cover;" id="page3">
+    <h1><b style="color: white;">Thank you for these beautiful memories</b></h1>
+    <div class="multi-photo">
+      <img src="photo1.png" alt="Memory 1" />
+      <img src="photo2.png" alt="Memory 2" />
+      <img src="photo3.jpg" alt="Memory 3" />
+      <img src="photo4.jpg" alt="Memory 4" />
+    </div>
+    <button class="button" onclick="nextPage()">One More Thing</button>
+  </div>
+
+  <div class="page" style="background: pink;" id="page4">
+    <div class="thankyou-box">
+      My Dearest Love,<br><br>
+      I just wanted to take a moment to say thank you—from the bottom of my heart—for everything you do and everything you are.<br><br>
+      Thank you for being my safe space, my biggest cheerleader, and my favorite person. Life feels lighter and brighter with you in it. Whether we’re doing something exciting or simply sitting in silence, your presence makes everything better. You have this magical way of turning ordinary moments into memories I want to hold onto forever.<br><br>
+      You make me feel so loved, seen, and understood, even on the days when I don’t feel like myself. You’ve stood by me with patience, made me laugh when I wanted to cry, and reminded me every day that love is supposed to feel this comforting and kind.<br><br>
+      I’m so grateful for your little gestures, your silly jokes, your warm hugs, and that beautiful heart of yours. Thank you for loving me the way you do—unconditionally and wholeheartedly.<br><br>
+      You mean more to me than words could ever say. I love you endlessly, and I can’t wait to keep making memories together.<br><br>
+      Forever yours ❤️
+    </div>
+    <button class="button" onclick="nextPage()">Show me what it is</button>
+  </div>
+
+  <div class="page" style="background: pink;" id="page5">
+    <img src="hug2.gif" width="200" />
+    <h2 class="hug-title">Hugs forever</h2>
+    <p style="color: white; font-size: 18px;">I wish I could hug you forever....because I love you endlessly</p>
+    <button class="button" onclick="nextPage()">I feel it</button>
+  </div>
+
+  <div class="page" style="background: navy; background-image: linear-gradient(to bottom right, navy, white);" id="page6">
+    <h1 style="color: white;">Thank you for being</h1>
+    <h1 style="background: linear-gradient(to right, pink, purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"><b>my favorite person!</b></h1>
+    <p style="color: white; font-size: 18px;">Want to feel the magic once more?</p>
+    <button class="button" onclick="location.reload()">Start Again</button>
+  </div>
+
+  <script>
+    let current = 1;
+    function nextPage() {
+      const pages = document.querySelectorAll(".page");
+      if (current < pages.length) {
+        pages[current - 1].classList.remove("active");
+        pages[current].classList.add("active");
+        current++;
+      }
+    }
+  </script>
+</body>
+</html>
